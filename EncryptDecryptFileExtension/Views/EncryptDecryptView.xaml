@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="EncryptDecryptFileExtension.Views.EncryptDecryptView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EncryptDecryptFileExtension.Views"
+             xmlns:viewModel="clr-namespace:EncryptDecryptFileExtension.ViewModel"
+             mc:Ignorable="d" 
+             Height="131" Width="354">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="69*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="usernameLabel" Grid.Row="0" Content="Username: " HorizontalAlignment="Left" Margin="28,11,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="usernameTextBox" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,11,0,0" TextWrapping="Wrap" Text="{Binding Username}" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" Width="228" />
+        
+        <Label x:Name="passwordLabel" Grid.Row="1" Content="Password: " HorizontalAlignment="Left" Margin="28,11,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="passwordTextBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" Width="228"/>
+
+        <Button x:Name="button" Content="{Binding FunctionName}" Grid.Column="1" HorizontalAlignment="Left" Margin="163,13,0,10" Grid.Row="2" VerticalAlignment="Stretch" Width="75" Command="{Binding EncryptDecryptFile}"/>
+
+    </Grid>
+</UserControl>

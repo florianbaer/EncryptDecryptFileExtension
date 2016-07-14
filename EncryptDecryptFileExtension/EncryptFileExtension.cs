@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using EncryptDecryptFileExtension.ViewModels;
 using EncryptDecryptFileExtension.Views;
 using SharpShell.Attributes;
 using SharpShell.SharpContextMenu;
@@ -27,7 +28,7 @@ namespace EncryptDecryptFileExtension
 
             var mainMenuItem = new ToolStripMenuItem()
             {
-                Text = "Encrypt/Decrypt Files"
+                Text = "Encrypt/Decrypt File"
             };
 
             var encryptItem = new ToolStripMenuItem()
@@ -52,10 +53,12 @@ namespace EncryptDecryptFileExtension
 
         private void EncryptFile(object sender, EventArgs eventArgs)
         {
+            var viewModel = new EncryptDecryptViewModel();
+
             Window window = new Window
             {
                 Title = $"Encrypt file {SelectedItemPaths.First()}",
-                Content = new EncryptView()
+                Content = new EncryptDecryptView()
             };
 
             window.ShowDialog();

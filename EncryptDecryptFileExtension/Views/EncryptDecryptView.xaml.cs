@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace EncryptDecryptFileExtension.Views
 {
     /// <summary>
-    /// Interaction logic for EncryptView.xaml
+    /// Interaction logic for EncryptDecryptView.xaml
     /// </summary>
-    public partial class EncryptView : UserControl
+    public partial class EncryptDecryptView : UserControl
     {
-        public EncryptView()
+        public EncryptDecryptView()
         {
             InitializeComponent();
         }

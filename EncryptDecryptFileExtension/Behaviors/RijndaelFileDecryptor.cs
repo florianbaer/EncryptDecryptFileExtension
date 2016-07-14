@@ -4,9 +4,9 @@ using EncryptDecryptFileExtension.Interface;
 
 namespace EncryptDecryptFileExtension.Behaviors
 {
-    public class RijndaelFileEncryptor : IFileEncryptor
+    public class RijndaelFileDecryptor : IFileDecryptor
     {
-        public void Encrypt(string inputFile, string outputFile, string username, string password)
+        public void Decrypt(string inputFile, string outputFile, string username, string password)
         {
             Guard.NotNullOrEmpty(() => inputFile, inputFile);
             Guard.NotNullOrEmpty(() => outputFile, outputFile);
@@ -19,9 +19,9 @@ namespace EncryptDecryptFileExtension.Behaviors
             {
                 managedRijndael.Key = key;
                 managedRijndael.IV = key;
-                
-                var encryptor = managedRijndael.CreateEncryptor();
-                
+
+                var encryptor = managedRijndael.CreateDecryptor();
+
                 // Create the streams used for encryption.
                 using (FileStream outputFileStream = new FileStream(outputFile, FileMode.Create))
                 {

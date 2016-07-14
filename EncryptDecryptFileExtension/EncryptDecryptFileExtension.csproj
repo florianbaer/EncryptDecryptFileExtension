@@ -75,17 +75,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behaviors\HashKeyCreator.cs" />
+    <Compile Include="Behaviors\RijndaelFileDecryptor.cs" />
     <Compile Include="Behaviors\RijndaelFileEncryptor.cs" />
     <Compile Include="EncryptFileExtension.cs" />
+    <Compile Include="Interface\IFileDecryptor.cs" />
     <Compile Include="Interface\IFileEncryptor.cs" />
     <Compile Include="Interface\IToolStripMenuItemExecutor.cs" />
     <Compile Include="netfx\System\Guard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\EncyptViewModel.cs" />
+    <Compile Include="ViewModels\EncryptDecryptViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="Views\EncryptView.xaml.cs">
-      <DependentUpon>EncryptView.xaml</DependentUpon>
+    <Compile Include="Views\EncryptDecryptView.xaml.cs">
+      <DependentUpon>EncryptDecryptView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +95,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="Views\EncryptView.xaml">
+    <Page Include="Views\EncryptDecryptView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
