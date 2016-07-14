@@ -13,7 +13,7 @@ using SharpShell.SharpContextMenu;
 namespace EncryptDecryptFileExtension
 {
     [ComVisible(true)]
-    [COMServerAssociation(AssociationType.ClassOfExtension, ".txt")]
+    [COMServerAssociation(AssociationType.AllFiles)]
     public class EncryptFileExtension : SharpContextMenu
     {
         protected override bool CanShowMenu()
@@ -25,13 +25,27 @@ namespace EncryptDecryptFileExtension
         {
             var strip = new ContextMenuStrip();
 
-            var item = new ToolStripMenuItem()
+            var mainMenuItem = new ToolStripMenuItem()
+            {
+                Text = "Encrypt/Decrypt Files"
+            };
+
+            var encryptItem = new ToolStripMenuItem()
             {
                 Text = "Encrypt file"
             };
 
-            item.Click += EncryptFile;
-            strip.Items.Add(item);
+            var decryptItem = new ToolStripMenuItem()
+            {
+                Text = "Decrypt file"
+            };
+
+            encryptItem.Click += EncryptFile;
+            decryptItem.Click += EncryptFile;
+            mainMenuItem.DropDownItems.Add(encryptItem);
+            mainMenuItem.DropDownItems.Add(decryptItem);
+
+            strip.Items.Add(mainMenuItem);
 
             return strip;
         }
