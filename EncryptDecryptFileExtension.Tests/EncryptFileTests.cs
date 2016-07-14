@@ -15,8 +15,8 @@ namespace EncryptDecryptFileExtension.Tests
             IFileEncryptor encryptor = new RijndaelFileEncryptor();
             encryptor.Encrypt($"{Environment.CurrentDirectory}/Testfile.txt", $"{Environment.CurrentDirectory}/Testfile.enc", "user", "pw");
 
-            IFileEncryptor decryptor = new RijndaelFileDecryptor();
-            decryptor.Encrypt($"{Environment.CurrentDirectory}/Testfile.enc", $"{Environment.CurrentDirectory}/Testfile.ttxt", "user", "pw");
+            IFileDecryptor decryptor = new RijndaelFileDecryptor();
+            decryptor.Decrypt($"{Environment.CurrentDirectory}/Testfile.enc", $"{Environment.CurrentDirectory}/Testfile.ttxt", "user", "pw");
         }
     }
 }

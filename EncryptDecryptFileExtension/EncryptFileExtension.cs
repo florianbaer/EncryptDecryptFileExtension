@@ -42,7 +42,7 @@ namespace EncryptDecryptFileExtension
             };
 
             encryptItem.Click += EncryptFile;
-            decryptItem.Click += EncryptFile;
+            decryptItem.Click += DecryptFile;
             mainMenuItem.DropDownItems.Add(encryptItem);
             mainMenuItem.DropDownItems.Add(decryptItem);
 
@@ -51,14 +51,35 @@ namespace EncryptDecryptFileExtension
             return strip;
         }
 
+        private void DecryptFile(object sender, EventArgs e)
+        {
+            var viewModel = new EncryptDecryptViewModel(this.SelectedItemPaths.First(), EncryptDecryptViewModel.Functionality.Decrypt);
+
+            var view = new EncryptDecryptView() { DataContext = viewModel };
+
+            Window window = new Window
+            {
+                Title = $"Decrypt file {SelectedItemPaths.First()}",
+                Content = view,
+                Height = view.Height,
+                Width = view.Width
+            };
+
+            window.ShowDialog();
+        }
+
         private void EncryptFile(object sender, EventArgs eventArgs)
         {
-            var viewModel = new EncryptDecryptViewModel();
+            var viewModel = new EncryptDecryptViewModel(this.SelectedItemPaths.First(), EncryptDecryptViewModel.Functionality.Encrypt);
+
+            var view = new EncryptDecryptView() {DataContext = viewModel};
 
             Window window = new Window
             {
                 Title = $"Encrypt file {SelectedItemPaths.First()}",
-                Content = new EncryptDecryptView()
+                Content = view,
+                Height = view.Height,
+                Width = view.Width
             };
 
             window.ShowDialog();
